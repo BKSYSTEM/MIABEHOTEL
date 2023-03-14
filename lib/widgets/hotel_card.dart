@@ -72,6 +72,7 @@ class HotelCard extends StatelessWidget {
                   style: GoogleFonts.nunito(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
+                    color: blackColor,
                   ),
                 ),
                 Text(
@@ -102,14 +103,14 @@ class HotelCard extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.place,
-                      color: greenColor,
+                      color: greyColorBtn,
                       size: 14,
                     ),
                     Text(
                       hotelData['distance'].toString() + ' Km du site',
                       style: GoogleFonts.nunito(
                         fontSize: 11,
-                        color: Colors.grey[500],
+                        color: greyColor,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -119,7 +120,7 @@ class HotelCard extends StatelessWidget {
                   '/nuit',
                   style: GoogleFonts.nunito(
                     fontSize: 11,
-                    color: Colors.grey[500],
+                    color: greyColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -134,28 +135,28 @@ class HotelCard extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.star_rate,
-                      color: greenColor,
-                      size: 14,
+                      color: yellowColor,
+                      size: 18,
                     ),
                     Icon(
                       Icons.star_rate,
-                      color: greenColor,
-                      size: 14,
+                      color: yellowColor,
+                      size: 18,
                     ),
                     Icon(
                       Icons.star_rate,
-                      color: greenColor,
-                      size: 14,
+                      color: yellowColor,
+                      size: 18,
                     ),
                     Icon(
                       Icons.star_rate,
-                      color: greenColor,
-                      size: 14,
+                      color: yellowColor,
+                      size: 18,
                     ),
                     Icon(
                       Icons.star_border,
-                      color: greenColor,
-                      size: 14,
+                      color: yellowColor,
+                      size: 18,
                     ),
                   ],
                 ),
@@ -164,7 +165,7 @@ class HotelCard extends StatelessWidget {
                   hotelData['review'].toString() + ' vues',
                   style: GoogleFonts.nunito(
                     fontSize: 14,
-                    color: Colors.grey[500],
+                    color: greyColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

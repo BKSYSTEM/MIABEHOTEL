@@ -26,7 +26,12 @@ class _DetailsPageState extends State<DetailsPage> {
             color: blackColor,
             size: 20,
           ),
-          onPressed: null,
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => BottomTabBar()),
+            );
+          },
         ),
         title: Text(
           'DETAILS',

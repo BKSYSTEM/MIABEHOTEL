@@ -27,7 +27,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
     return CustomBackground(
       child: Scaffold(
         // backgroundColor: backgroundColor,
-        appBar: AppBar(
+        /*appBar: AppBar(
           backgroundColor: Colors.white,
           centerTitle: true,
           elevation: 4.0,
@@ -44,13 +44,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
                   color: primaryColor,
                   fontSize: 35,
                   fontWeight: FontWeight.w800,
-                  /*shadows: [
-                      Shadow(
-                        blurRadius: 1.0,
-                        color: Colors.grey,
-                        offset: Offset(1.0, 1.0),
-                      ),
-                    ],*/
+                  
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -61,7 +55,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
               ),
             ],
           ),
-        ),
+        ),*/
 
         body: Center(
           child: _widgetOptions.elementAt(_selectedIndex),
@@ -97,7 +91,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
                   ),
                   GButton(
                     icon: Icons.book,
-                    text: 'Réservation',
+                    text: 'Mes Réservations',
                     /*textStyle: GoogleFonts.nunito(
                         fontSize: 17, fontWeight: FontWeight.bold),
                  */
