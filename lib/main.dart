@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:miabehotel/screens/payement_page.dart';
 import 'package:miabehotel/screens/see_all_screens.dart';
 import 'package:miabehotel/screens/splash/splash_screen_page.dart';
+import 'package:miabehotel/screens/welcome_page.dart';
 
 void main() {
   runApp(const MyApp());

@@ -85,25 +85,38 @@ class _UserProfileState extends State<UserProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        elevation: 0,
+        title: Text(
+          'PROFIL',
+          style: GoogleFonts.nunito(
+            color: blackColor,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       body: CustomBackground(
         child: SingleChildScrollView(
           child: Container(
-            padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
-            margin: const EdgeInsets.all(20),
+            padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+            margin: const EdgeInsets.all(10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(
+                /*Center(
                   child: Text(
                     'PROFIL',
                     style: GoogleFonts.nunito(
                       color: blackColor,
-                      fontSize: 24,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                ),
+                ),*/
                 const SizedBox(height: 10),
                 Text(
                   'Informations du Reservateur',
@@ -114,7 +127,7 @@ class _UserProfileState extends State<UserProfile> {
                   ),
                   textAlign: TextAlign.start,
                 ),
-                const SizedBox(height: 17),
+                const SizedBox(height: 15),
                 Form(
                   child: Column(
                     children: [
@@ -123,12 +136,12 @@ class _UserProfileState extends State<UserProfile> {
                         decoration: InputDecoration(
                           border: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(
-                              Radius.circular(30),
+                              Radius.circular(20),
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: blackColor),
-                            borderRadius: BorderRadius.circular(30),
+                            borderRadius: BorderRadius.circular(20),
                           ),
                           labelText: 'Nom',
                           labelStyle: TextStyle(color: blackColor),
@@ -143,13 +156,13 @@ class _UserProfileState extends State<UserProfile> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 25),
+                      const SizedBox(height: 20),
                       TextField(
                         controller: _prenomController,
                         decoration: InputDecoration(
                           border: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(
-                              Radius.circular(30),
+                              Radius.circular(20),
                             ),
                           ),
                           labelText: 'Prénom',
@@ -165,13 +178,13 @@ class _UserProfileState extends State<UserProfile> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 25),
+                      const SizedBox(height: 20),
                       TextField(
                         controller: _telephoneController,
                         decoration: InputDecoration(
                           border: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(
-                              Radius.circular(30),
+                              Radius.circular(20),
                             ),
                           ),
                           labelText: 'Numéro téléphone',
@@ -187,13 +200,13 @@ class _UserProfileState extends State<UserProfile> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 25),
+                      const SizedBox(height: 20),
                       TextField(
                         controller: _emailController,
                         decoration: InputDecoration(
                           border: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(
-                              Radius.circular(30),
+                              Radius.circular(20),
                             ),
                           ),
                           labelText: 'Email',
@@ -222,19 +235,19 @@ class _UserProfileState extends State<UserProfile> {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 15),
                 Container(
                   height: 200,
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  /*child: ListView.builder(
+                  child: ListView.builder(
                     scrollDirection: Axis.vertical,
                     itemCount: paymentMethods.length,
                     itemBuilder: (BuildContext context, int index) {
                       PaymentMethod method = paymentMethods[index];
                       return ListTile(
                         leading: Container(
-                          height: 50,
-                          width: 50,
+                          height: 40,
+                          width: 40,
                           child: Image.asset(
                             method.icon,
                             fit: BoxFit.contain,
@@ -282,7 +295,6 @@ class _UserProfileState extends State<UserProfile> {
                       );
                     },
                   ),
-                */
                 ),
               ],
             ),

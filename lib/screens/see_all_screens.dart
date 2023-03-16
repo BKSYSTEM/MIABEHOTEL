@@ -26,49 +26,22 @@ class _BottomTabBarState extends State<BottomTabBar> {
   Widget build(BuildContext context) {
     return CustomBackground(
       child: Scaffold(
-        // backgroundColor: backgroundColor,
-        /*appBar: AppBar(
-          backgroundColor: Colors.white,
-          centerTitle: true,
-          elevation: 4.0,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Image.asset(
-                'assets/images/logo.png',
-                height: 40.0, // adjust as needed
-              ),
-              Text(
-                'MIABE HOTEL',
-                style: GoogleFonts.nunito(
-                  color: primaryColor,
-                  fontSize: 35,
-                  fontWeight: FontWeight.w800,
-                  
-                ),
-                textAlign: TextAlign.center,
-              ),
-              Image.asset(
-                'assets/images/logo.png',
-                height: 40.0,
-                // width: 40.0, // adjust as needed
-              ),
-            ],
-          ),
-        ),*/
-
         body: Center(
           child: _widgetOptions.elementAt(_selectedIndex),
         ),
         bottomNavigationBar: Container(
           height: 60,
-          margin: EdgeInsets.only(bottom: 4),
+          margin: const EdgeInsets.only(bottom: 4),
           //padding: const EdgeInsets.only(bottom: 5),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: backgroundColor,
             boxShadow: [
               BoxShadow(blurRadius: 20, color: Colors.black.withOpacity(.1))
             ],
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(35),
+              topRight: Radius.circular(35),
+            ),
           ),
           child: SafeArea(
             child: Padding(
