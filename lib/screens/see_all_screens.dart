@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:miabehotel/constants/colors.dart';
 import 'package:miabehotel/screens/custom_backgroound.dart';
+import 'package:miabehotel/screens/mes_reservations.dart';
 import 'package:miabehotel/screens/profil_page.dart';
 import 'package:miabehotel/screens/search_page.dart';
 import 'package:miabehotel/screens/reservation_page.dart';
@@ -18,7 +19,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
   int _selectedIndex = 0;
   final List<Widget> _widgetOptions = <Widget>[
     SearchPage(),
-    ReservationPage(),
+    MesReservations(),
     UserProfile(),
   ];
 

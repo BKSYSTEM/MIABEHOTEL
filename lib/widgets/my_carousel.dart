@@ -12,15 +12,15 @@ class MyCarousel extends StatelessWidget {
   Widget build(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
-        height: 67,
-        viewportFraction: 0.25,
+        height: 230,
+        viewportFraction: 0.80,
         enableInfiniteScroll: true,
         enlargeCenterPage: true,
       ),
       items: images
           .map((image) => Container(
-                height: 67,
-                width: 88,
+                height: 230,
+                width: 311,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                 ),

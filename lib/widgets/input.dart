@@ -8,14 +8,12 @@ class InputField extends StatefulWidget {
     required this.labelText,
     this.isHide = false,
     this.keyboardType = TextInputType.text,
-    this.maxLine = 1,
   });
 
   final String labelText;
   final bool isHide;
   final TextInputType keyboardType;
   final TextEditingController controller;
-  final int maxLine;
 
   @override
   // ignore: library_private_types_in_public_api
@@ -36,7 +34,6 @@ class _InputFieldState extends State<InputField> {
         },
         keyboardType: widget.keyboardType,
         controller: widget.controller,
-        maxLines: widget.maxLine,
         style: const TextStyle(
           fontSize: 20,
         ),

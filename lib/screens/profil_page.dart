@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miabehotel/constants/payement.dart';
+import 'package:miabehotel/models/payement.dart';
 import 'package:miabehotel/screens/custom_backgroound.dart';
 
 import '../constants/colors.dart';
@@ -106,17 +106,6 @@ class _UserProfileState extends State<UserProfile> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                /*Center(
-                  child: Text(
-                    'PROFIL',
-                    style: GoogleFonts.nunito(
-                      color: blackColor,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),*/
                 const SizedBox(height: 10),
                 Text(
                   'Informations du Reservateur',
@@ -149,7 +138,7 @@ class _UserProfileState extends State<UserProfile> {
                           filled: true,
                           fillColor: whiteColor,
                           suffixIcon: IconButton(
-                            icon: Icon(Icons.edit),
+                            icon: const Icon(Icons.edit),
                             onPressed: () {
                               _showEditDialog(context, 'Nom', _nomController);
                             },
@@ -170,7 +159,7 @@ class _UserProfileState extends State<UserProfile> {
                           filled: true,
                           fillColor: whiteColor,
                           suffixIcon: IconButton(
-                            icon: Icon(Icons.edit),
+                            icon: const Icon(Icons.edit),
                             onPressed: () {
                               _showEditDialog(
                                   context, 'Prénom', _prenomController);
@@ -192,7 +181,7 @@ class _UserProfileState extends State<UserProfile> {
                           filled: true,
                           fillColor: whiteColor,
                           suffixIcon: IconButton(
-                            icon: Icon(Icons.edit),
+                            icon: const Icon(Icons.edit),
                             onPressed: () {
                               _showEditDialog(context, 'Numéro téléphone',
                                   _telephoneController);
@@ -214,7 +203,7 @@ class _UserProfileState extends State<UserProfile> {
                           filled: true,
                           fillColor: whiteColor,
                           suffixIcon: IconButton(
-                            icon: Icon(Icons.edit),
+                            icon: const Icon(Icons.edit),
                             onPressed: () {
                               _showEditDialog(
                                   context, 'Email', _emailController);

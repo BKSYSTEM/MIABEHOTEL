@@ -131,11 +131,13 @@ class _SearchPageState extends State<SearchPage> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => DetailsPage()),
+                        MaterialPageRoute(
+                          builder: (context) => const DetailsPage(),
+                        ),
                       );
                     },
                     child: Container(
-                      width: 350,
+                      width: 300,
                       decoration: BoxDecoration(
                         color: whiteColor,
                         borderRadius: BorderRadius.circular(10),
@@ -148,116 +150,137 @@ class _SearchPageState extends State<SearchPage> {
                           ),
                         ],
                       ),
-                      child: Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(5),
-                            //color: whiteColor,
-                            height: 75,
-                            width: 80,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.asset(
-                                'assets/images/onomo.jpeg',
-                                fit: BoxFit.cover,
+                      child: Expanded(
+                        child: Row(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(5),
+                              //color: whiteColor,
+                              height: 75,
+                              width: 80,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.asset(
+                                  'assets/images/onomo.jpeg',
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
-                          ),
-                          const SizedBox(width: 8),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            const SizedBox(width: 8),
+                            Container(
+                              height: 75,
+                              width: 200,
+                              padding: const EdgeInsets.only(top: 5, bottom: 8),
+                              child: Column(
+                                //mainAxisAlignment:
+                                //MainAxisAlignment.spaceBetween,
+                                mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    'ONOMO Hotel Lomé',
-                                    style: GoogleFonts.nunito(
-                                      color: blackColor,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 15),
                                   Row(
+                                    //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        '70.0000 ',
+                                        'ONOMO Hotel Lomé',
                                         style: GoogleFonts.nunito(
-                                          color: blueColor,
+                                          color: blackColor,
                                           fontSize: 15,
                                           fontWeight: FontWeight.bold,
                                         ),
+                                        overflow: TextOverflow.ellipsis,
                                       ),
-                                      Text(
-                                        '/nuit',
-                                        style: GoogleFonts.nunito(
-                                          color: greyColor,
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
+                                      const SizedBox(width: 15),
+                                      Flexible(
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                '70.0000 ',
+                                                style: GoogleFonts.nunito(
+                                                  color: blueColor,
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: Text(
+                                                '/nuit',
+                                                style: GoogleFonts.nunito(
+                                                  color: greyColor,
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ],
                                   ),
-                                ],
-                              ),
-                              Text(
-                                'Boulevard du Mono, Lomé-TOGO',
-                                style: GoogleFonts.nunito(
-                                  color: greyColor,
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Icon(
-                                    Icons.star_rate,
-                                    color: yellowColor,
-                                    size: 20,
-                                  ),
-                                  const SizedBox(width: 5),
-                                  Icon(
-                                    Icons.star_rate,
-                                    color: yellowColor,
-                                    size: 20,
-                                  ),
-                                  const SizedBox(width: 5),
-                                  Icon(
-                                    Icons.star_rate,
-                                    color: yellowColor,
-                                    size: 20,
-                                  ),
-                                  const SizedBox(width: 5),
-                                  Icon(
-                                    Icons.star_rate,
-                                    color: yellowColor,
-                                    size: 20,
-                                  ),
-                                  const SizedBox(width: 5),
-                                  Icon(
-                                    Icons.star_border,
-                                    color: yellowColor,
-                                    size: 20,
-                                  ),
-                                  const SizedBox(width: 10),
                                   Text(
-                                    '4.0',
+                                    'Boulevard du Mono, Lomé-TOGO',
                                     style: GoogleFonts.nunito(
-                                      color: blackColor,
-                                      fontSize: 14,
+                                      color: greyColor,
+                                      fontSize: 13,
                                       fontWeight: FontWeight.bold,
                                     ),
-                                  )
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Icon(
+                                        Icons.star_rate,
+                                        color: yellowColor,
+                                        size: 20,
+                                      ),
+                                      const SizedBox(width: 5),
+                                      Icon(
+                                        Icons.star_rate,
+                                        color: yellowColor,
+                                        size: 20,
+                                      ),
+                                      const SizedBox(width: 5),
+                                      Icon(
+                                        Icons.star_rate,
+                                        color: yellowColor,
+                                        size: 20,
+                                      ),
+                                      const SizedBox(width: 5),
+                                      Icon(
+                                        Icons.star_rate,
+                                        color: yellowColor,
+                                        size: 20,
+                                      ),
+                                      const SizedBox(width: 5),
+                                      Icon(
+                                        Icons.star_border,
+                                        color: yellowColor,
+                                        size: 20,
+                                      ),
+                                      const SizedBox(width: 10),
+                                      Text(
+                                        '4.0',
+                                        style: GoogleFonts.nunito(
+                                          color: blackColor,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ],
                               ),
-                            ],
-                          ),
-                        ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

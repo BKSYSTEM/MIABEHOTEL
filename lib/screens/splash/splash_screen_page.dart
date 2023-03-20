@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
-        future: Future.delayed(Duration(seconds: 5)),
+        future: Future.delayed(Duration(seconds: 10)),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return CustomBackground(

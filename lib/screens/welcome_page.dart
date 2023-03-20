@@ -27,7 +27,8 @@ class _WelcomePageState extends State<WelcomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => BottomTabBar()),
+                    MaterialPageRoute(
+                        builder: (context) => const BottomTabBar()),
                   );
                 },
                 child: Text(
@@ -48,7 +49,7 @@ class _WelcomePageState extends State<WelcomePage> {
             child: Padding(
               padding: const EdgeInsets.fromLTRB(20, 5, 25, 5),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   /* SvgPicture.asset(
                     'assets/images/svg/undraw_travel_plans_re_103r.svg',
@@ -56,10 +57,11 @@ class _WelcomePageState extends State<WelcomePage> {
                     width: 200,
                   ),*/
                   Container(
-                    margin: const EdgeInsets.only(top: 50),
-                    color: primaryColor,
-                    height: 200,
-                    width: 200,
+                    margin: const EdgeInsets.only(top: 5),
+                    height: 300,
+                    width: 300,
+                    child: Image.asset(
+                        'assets/images/undraw_Travel_booking_re_6umu.png'),
                   ),
                   const SizedBox(height: 10),
                   Text(
@@ -170,15 +172,14 @@ class _WelcomePageState extends State<WelcomePage> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 98),
                   Container(
-                    //margin: const EdgeInsets.only(bottom: 84),
+                    margin: const EdgeInsets.only(top: 50),
                     child: MaterialButton(
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => BottomTabBar()),
+                              builder: (context) => const BottomTabBar()),
                         );
                       },
                       padding: const EdgeInsets.symmetric(horizontal: 10),
