@@ -5,6 +5,8 @@ import 'package:miabehotel/screens/splash/splash_screen_page.dart';
 import 'package:miabehotel/screens/welcome_page.dart';
 import 'package:miabehotel/widgets/hotel_card_horizontal.dart';
 
+import 'authenticate/login_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -15,10 +17,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Miabe Hotel',
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: LoginPage(),
     );
   }
 }
