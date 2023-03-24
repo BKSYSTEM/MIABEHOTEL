@@ -3,31 +3,33 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miabehotel/authenticate/forgot_page.dart';
 import 'package:miabehotel/constants/colors.dart';
 import 'package:miabehotel/screens/custom_backgroound.dart';
-import 'package:miabehotel/screens/register_page.dart';
-import 'package:miabehotel/screens/see_all_screens.dart';
 
-class LoginPage extends StatefulWidget {
-  //final VoidCallback showRegisterPage;
-  const LoginPage({
+class RegisterPage extends StatefulWidget {
+  //final VoidCallback showLoginPage;
+  const RegisterPage({
     super.key,
-    /*required this.showRegisterPage*/
+    /*required this.showLoginPage*/
   });
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final keys = GlobalKey<FormState>();
 
   //text controller
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _confirmedPasswordController = TextEditingController();
+  final _pseudoController = TextEditingController();
 
   @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
+    _confirmedPasswordController.dispose();
+    _pseudoController.dispose();
     super.dispose();
   }
 
@@ -44,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Bon retour !',
+                      'Bienvenue à bord',
                       style: GoogleFonts.nunito(
                         color: blackColor,
                         fontSize: 20,
@@ -53,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      'Content de vous revoir',
+                      'Nous sommes ravis de vous accueillier dans notre communauté!',
                       style: GoogleFonts.nunito(
                         color: greyColor,
                         fontSize: 17,
@@ -150,13 +152,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const BottomTabBar()),
-                        );
-                      },
+                      onTap: () {},
                     ),
                     const SizedBox(height: 10),
                     Padding(
@@ -259,15 +255,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         GestureDetector(
-                          //         onTap: widget.showRegisterPage,
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const RegisterPage(),
-                              ),
-                            );
-                          },
+                          //    onTap: widget.showLoginPage,
                           child: Text(
                             "S'INSCRIRE",
                             style: TextStyle(

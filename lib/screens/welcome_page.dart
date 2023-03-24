@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miabehotel/authenticate/login_page.dart';
 import 'package:miabehotel/constants/colors.dart';
 import 'package:miabehotel/screens/custom_backgroound.dart';
 import 'package:miabehotel/screens/see_all_screens.dart';
@@ -178,7 +179,7 @@ class _WelcomePageState extends State<WelcomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const BottomTabBar()),
+                              builder: (context) => const LoginPage()),
                         );
                       },
                       padding: const EdgeInsets.symmetric(horizontal: 10),
