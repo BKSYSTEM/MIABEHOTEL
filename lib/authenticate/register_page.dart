@@ -54,19 +54,42 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    Text(
-                      'Nous sommes ravis de vous accueillier dans notre communauté!',
-                      style: GoogleFonts.nunito(
-                        color: greyColor,
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Text(
+                        'Nous sommes ravis de vous accueillier dans notre communauté!',
+                        style: GoogleFonts.nunito(
+                          color: greyColor,
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
-                    const SizedBox(height: 10),
-                    Image.asset(
-                      'assets/images/welcome.png',
+                    const SizedBox(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: TextFormField(
+                        validator: (value) {},
+                        controller: _pseudoController,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25),
+                            borderSide: BorderSide(color: greyColor),
+                          ),
+                          hintText: 'Entrez votre pseudo',
+                          labelText: 'Pseudo',
+                          labelStyle:
+                              TextStyle(color: blackColor, fontSize: 20),
+                          fillColor: whiteColor,
+                          filled: true,
+                        ),
+                      ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 15),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: TextFormField(
@@ -87,11 +110,11 @@ class _RegisterPageState extends State<RegisterPage> {
                         controller: _emailController,
                         decoration: InputDecoration(
                           border: const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(25)),
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: greyColor),
-                            borderRadius: BorderRadius.circular(25),
+                            borderRadius: BorderRadius.circular(20),
                           ),
                           hintText: 'Entrez votre email',
                           labelText: 'Email',
@@ -102,7 +125,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 15),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: TextFormField(
@@ -118,10 +141,10 @@ class _RegisterPageState extends State<RegisterPage> {
                         obscureText: true,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(25)),
+                              borderRadius: BorderRadius.circular(20)),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: greyColor),
-                            borderRadius: BorderRadius.circular(25),
+                            borderRadius: BorderRadius.circular(20),
                           ),
                           hintText: 'Entrez votre mot de passe',
                           labelText: 'Mot de passe',
@@ -132,7 +155,37 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 15),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: TextFormField(
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Veuillez entrer un mot de passe";
+                          } else if (value.length < 6) {
+                            "Le mot de passe doit contenir au moins 6 caractères";
+                          }
+                          return null;
+                        },
+                        controller: _passwordController,
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: greyColor),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          hintText: 'Confirmer votre mot de passe',
+                          labelText: 'Confirmer votre mot de passe',
+                          labelStyle:
+                              TextStyle(fontSize: 20, color: blackColor),
+                          filled: true,
+                          fillColor: whiteColor,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 35),
                     GestureDetector(
                       child: MaterialButton(
                         onPressed: null,
@@ -142,7 +195,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           padding: const EdgeInsets.symmetric(vertical: 12),
                           width: MediaQuery.of(context).size.width,
                           child: Text(
-                            "Se connecter",
+                            "S'inscrire",
                             style: GoogleFonts.nunito(
                               color: whiteColor,
                               fontSize: 20,
@@ -153,31 +206,6 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                       ),
                       onTap: () {},
-                    ),
-                    const SizedBox(height: 10),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return const ForgotPasswordPage();
-                              }));
-                            },
-                            child: Text(
-                              "J'ai oublié mon mot de passe",
-                              style: GoogleFonts.nunito(
-                                color: secondaryColor,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w800,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
                     ),
                     const SizedBox(height: 10),
                     Text(
@@ -248,7 +276,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Je n'ai pas un compte? ",
+                          "J'ai déjà un compte? ",
                           style: TextStyle(
                             color: greyColor,
                             fontWeight: FontWeight.w800,
@@ -257,7 +285,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         GestureDetector(
                           //    onTap: widget.showLoginPage,
                           child: Text(
-                            "S'INSCRIRE",
+                            "S'IDENTIFIER",
                             style: TextStyle(
                               color: secondaryColor,
                               fontWeight: FontWeight.w800,

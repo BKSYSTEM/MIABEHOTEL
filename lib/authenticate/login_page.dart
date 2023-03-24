@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miabehotel/authenticate/forgot_page.dart';
+import 'package:miabehotel/authenticate/register_page.dart';
 import 'package:miabehotel/constants/colors.dart';
 import 'package:miabehotel/screens/custom_backgroound.dart';
-import 'package:miabehotel/screens/register_page.dart';
 import 'package:miabehotel/screens/see_all_screens.dart';
 
 class LoginPage extends StatefulWidget {
