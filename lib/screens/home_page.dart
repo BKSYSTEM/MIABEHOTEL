@@ -1,9 +1,13 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miabehotel/constants/colors.dart';
 import 'package:miabehotel/constants/data.dart';
 import 'package:miabehotel/screens/custom_backgroound.dart';
 import 'package:miabehotel/screens/details_page.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:miabehotel/screens/response_search_page.dart';
 import 'package:miabehotel/widgets/hotel_card.dart';
 
@@ -13,6 +17,40 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+  late StreamSubscription subscription;
+  var isConnected = false;
+  bool isAlertSet = false;
+
+  bool isloadingP = false;
+  bool isloadingR = false;
+  List listePopulaires = [];
+  List listeRecents = [];
+
+  @override
+  void initState() {
+    super.initState();
+    getConnectivity();
+  }
+
+  getConnectivity() {
+    subscription = Connectivity()
+        .onConnectivityChanged
+        .listen((ConnectivityResult result) async {
+      isConnected = await InternetConnectionChecker().hasConnection;
+      if (!isConnected && isAlertSet == false) {
+        setState(() {
+          isAlertSet = true;
+        });
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    subscription.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

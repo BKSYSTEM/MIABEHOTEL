@@ -1,33 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miabehotel/authenticate/forgot_page.dart';
-import 'package:miabehotel/authenticate/register_page.dart';
+import 'package:miabehotel/authentication/main_page.dart';
 import 'package:miabehotel/constants/colors.dart';
 import 'package:miabehotel/screens/custom_backgroound.dart';
-import 'package:miabehotel/screens/see_all_screens.dart';
+import 'package:miabehotel/services/auth.dart';
 
-class LoginPage extends StatefulWidget {
-  //final VoidCallback showRegisterPage;
-  const LoginPage({
-    super.key,
-    /*required this.showRegisterPage*/
-  });
+class RegisterPage extends StatefulWidget {
+  final VoidCallback showLoginPage;
+  const RegisterPage({super.key, required this.showLoginPage});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final keys = GlobalKey<FormState>();
 
   //text controller
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _confirmedPasswordController = TextEditingController();
+  final _pseudoController = TextEditingController();
+
+  AuthServices auth = AuthServices();
 
   @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
+    _confirmedPasswordController.dispose();
+    _pseudoController.dispose();
     super.dispose();
   }
 
@@ -44,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Bon retour !',
+                      'Bienvenue à bord',
                       style: GoogleFonts.nunito(
                         color: blackColor,
                         fontSize: 20,
@@ -52,19 +54,42 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    Text(
-                      'Content de vous revoir',
-                      style: GoogleFonts.nunito(
-                        color: greyColor,
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Text(
+                        'Nous sommes ravis de vous accueillier dans notre communauté!',
+                        style: GoogleFonts.nunito(
+                          color: greyColor,
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
-                    const SizedBox(height: 10),
-                    Image.asset(
-                      'assets/images/welcome.png',
+                    const SizedBox(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: TextFormField(
+                        validator: (value) {},
+                        controller: _pseudoController,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25),
+                            borderSide: BorderSide(color: greyColor),
+                          ),
+                          hintText: 'Entrez votre pseudo',
+                          labelText: 'Pseudo',
+                          labelStyle:
+                              TextStyle(color: blackColor, fontSize: 20),
+                          fillColor: whiteColor,
+                          filled: true,
+                        ),
+                      ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 15),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: TextFormField(
@@ -85,11 +110,11 @@ class _LoginPageState extends State<LoginPage> {
                         controller: _emailController,
                         decoration: InputDecoration(
                           border: const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(25)),
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: greyColor),
-                            borderRadius: BorderRadius.circular(25),
+                            borderRadius: BorderRadius.circular(20),
                           ),
                           hintText: 'Entrez votre email',
                           labelText: 'Email',
@@ -100,7 +125,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 15),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: TextFormField(
@@ -116,10 +141,10 @@ class _LoginPageState extends State<LoginPage> {
                         obscureText: true,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(25)),
+                              borderRadius: BorderRadius.circular(20)),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: greyColor),
-                            borderRadius: BorderRadius.circular(25),
+                            borderRadius: BorderRadius.circular(20),
                           ),
                           hintText: 'Entrez votre mot de passe',
                           labelText: 'Mot de passe',
@@ -130,59 +155,81 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
-                    GestureDetector(
-                      child: MaterialButton(
-                        onPressed: null,
-                        child: Container(
-                          color: primaryColor,
-                          margin: const EdgeInsets.symmetric(horizontal: 10),
-                          padding: const EdgeInsets.symmetric(vertical: 12),
-                          width: MediaQuery.of(context).size.width,
-                          child: Text(
-                            "Se connecter",
-                            style: GoogleFonts.nunito(
-                              color: whiteColor,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w800,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const BottomTabBar()),
-                        );
-                      },
-                    ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 15),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return const ForgotPasswordPage();
-                              }));
-                            },
-                            child: Text(
-                              "J'ai oublié mon mot de passe",
-                              style: GoogleFonts.nunito(
-                                color: secondaryColor,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w800,
-                              ),
-                            ),
-                          )
-                        ],
+                      child: TextFormField(
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Veuillez entrer un mot de passe";
+                          } else if (value.length < 6) {
+                            "Le mot de passe doit contenir au moins 6 caractères";
+                          }
+                          return null;
+                        },
+                        controller: _passwordController,
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: greyColor),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          hintText: 'Confirmer votre mot de passe',
+                          labelText: 'Confirmer votre mot de passe',
+                          labelStyle:
+                              TextStyle(fontSize: 20, color: blackColor),
+                          filled: true,
+                          fillColor: whiteColor,
+                        ),
                       ),
                     ),
+                    const SizedBox(height: 35),
+                    /*GestureDetector(
+                      child: */
+                    GestureDetector(
+                      onTap: () async {
+                        if (keys.currentState!.validate()) {
+                          await auth.signUp(
+                              _emailController,
+                              _passwordController,
+                              _confirmedPasswordController,
+                              context,
+                              _pseudoController);
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return MainPage();
+                          }));
+                        }
+                      },
+                      child: Container(
+                        color: primaryColor,
+                        margin: const EdgeInsets.symmetric(horizontal: 10),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        width: MediaQuery.of(context).size.width,
+                        child: Text(
+                          "S'inscrire",
+                          style: GoogleFonts.nunito(
+                            color: whiteColor,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w800,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    /* onTap: () async {
+                        if (keys.currentState!.validate()) {
+                          await auth.signUp(
+                              _emailController,
+                              _passwordController,
+                              _confirmedPasswordController,
+                              context,
+                              _pseudoController);
+                        }
+                      },
+                    ),*/
                     const SizedBox(height: 10),
                     Text(
                       "OU",
@@ -252,24 +299,16 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Je n'ai pas un compte? ",
+                          "J'ai déjà un compte? ",
                           style: TextStyle(
                             color: greyColor,
                             fontWeight: FontWeight.w800,
                           ),
                         ),
                         GestureDetector(
-                          //         onTap: widget.showRegisterPage,
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const RegisterPage(),
-                              ),
-                            );
-                          },
+                          onTap: widget.showLoginPage,
                           child: Text(
-                            "S'INSCRIRE",
+                            "S'IDENTIFIER",
                             style: TextStyle(
                               color: secondaryColor,
                               fontWeight: FontWeight.w800,

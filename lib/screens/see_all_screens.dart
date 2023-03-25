@@ -5,7 +5,7 @@ import 'package:miabehotel/constants/colors.dart';
 import 'package:miabehotel/screens/custom_backgroound.dart';
 import 'package:miabehotel/screens/mes_reservations.dart';
 import 'package:miabehotel/screens/profil_page.dart';
-import 'package:miabehotel/screens/search_page.dart';
+import 'package:miabehotel/screens/home_page.dart';
 import 'package:miabehotel/screens/reservation_page.dart';
 
 class BottomTabBar extends StatefulWidget {

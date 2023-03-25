@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miabehotel/constants/colors.dart';
 import 'package:miabehotel/screens/reservation_page.dart';
-import 'package:miabehotel/screens/search_page.dart';
+import 'package:miabehotel/screens/home_page.dart';
 import 'package:miabehotel/screens/see_all_screens.dart';
 import 'package:miabehotel/widgets/my_carousel.dart';
 
