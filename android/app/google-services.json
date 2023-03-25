@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "68358477760",
+    "project_id": "miabehotel-4a517",
+    "storage_bucket": "miabehotel-4a517.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68358477760:android:931572eaf854a498aa9a25",
+        "android_client_info": {
+          "package_name": "com.example.miabehotel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "68358477760-n6b1ocvg0oorkh47gdlhfui7u33o3nf6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYqfLTY98aHW3Zu_ksFUWfxsoRzXJuMLw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "68358477760-n6b1ocvg0oorkh47gdlhfui7u33o3nf6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
